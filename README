@@ -1,0 +1,12 @@
+Starcraft: Brood War maps that I have created.
+
+Contents:
+	*(8)Blood Gulch
+		A map based on the Halo multiplayer map, Blood Gulch. Currently it supports 4v4 team play with the objective of either reaching a certain kill count or capturing the flag for points.
+		Features:
+		-Weapons on item-spawn counters using triggers and switches
+		-Vehicles on similar switches, though there is not currently support for exiting vehicles or item persistence while using a vehicle
+		-Indoor areas representative of the insides of the bases
+		-Separate areas for the enclosed caves on the west side of the map
+		-Unit upgrades to increase damage and armor with different weapons/classes of unit
+	*That's it for now...
