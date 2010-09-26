@@ -1,0 +1,7 @@
+alias gs='git status'
+alias gd='git diff'
+alias gc='git commit'
+alias dir='ls -l'
+alias CC='cd ~/Workspace/CompilerConstruction'
+alias CCl='cd ~/Workspace/CompilerConstruction/lib'
+alias e='explorer .'
