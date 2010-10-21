@@ -95,6 +95,7 @@
   <action id="CheckinProject">
     <keyboard-shortcut first-keystroke="meta K" />
     <keyboard-shortcut first-keystroke="alt K" />
+    <keyboard-shortcut first-keystroke="control K" />
   </action>
   <action id="ChooseDebugConfiguration">
     <keyboard-shortcut first-keystroke="meta alt F8" />
@@ -119,6 +120,10 @@
   <action id="CloseContent">
     <keyboard-shortcut first-keystroke="meta F4" />
     <keyboard-shortcut first-keystroke="control F4" />
+  </action>
+  <action id="CloseEditor">
+    <keyboard-shortcut first-keystroke="meta W" />
+    <keyboard-shortcut first-keystroke="control W" />
   </action>
   <action id="CodeCompletion">
     <keyboard-shortcut first-keystroke="control SPACE" />
@@ -433,6 +438,11 @@
     <keyboard-shortcut first-keystroke="meta F12" />
     <keyboard-shortcut first-keystroke="control F12" />
   </action>
+  <action id="Find">
+    <keyboard-shortcut first-keystroke="meta F" />
+    <keyboard-shortcut first-keystroke="alt F3" />
+    <keyboard-shortcut first-keystroke="control F" />
+  </action>
   <action id="FindInPath">
     <keyboard-shortcut first-keystroke="shift meta F" />
     <keyboard-shortcut first-keystroke="shift control F" />
@@ -522,6 +532,7 @@
     <keyboard-shortcut first-keystroke="shift control B" />
     <mouse-shortcut keystroke="shift control button1" />
   </action>
+  <action id="GuiDesigner.ExpandSelection" />
   <action id="HighlightUsagesInFile">
     <keyboard-shortcut first-keystroke="shift meta F7" />
     <keyboard-shortcut first-keystroke="shift control alt F7" />
@@ -709,6 +720,7 @@
     <keyboard-shortcut first-keystroke="shift meta I" />
     <keyboard-shortcut first-keystroke="control alt I" />
   </action>
+  <action id="QuickList.Refactor this..." />
   <action id="RecentChangedFiles">
     <keyboard-shortcut first-keystroke="shift meta E" />
     <keyboard-shortcut first-keystroke="shift alt E" />
@@ -828,12 +840,25 @@
     <keyboard-shortcut first-keystroke="meta alt J" />
     <keyboard-shortcut first-keystroke="shift alt J" />
   </action>
+  <action id="SwitchApply">
+    <keyboard-shortcut first-keystroke="shift alt ENTER" />
+  </action>
   <action id="SwitchCoverage">
     <keyboard-shortcut first-keystroke="meta alt F6" />
     <keyboard-shortcut first-keystroke="control alt F6" />
   </action>
-  <action id="SwitchLeft" />
-  <action id="SwitchRight" />
+  <action id="SwitchDown">
+    <keyboard-shortcut first-keystroke="shift alt DOWN" />
+  </action>
+  <action id="SwitchLeft">
+    <keyboard-shortcut first-keystroke="shift alt LEFT" />
+  </action>
+  <action id="SwitchRight">
+    <keyboard-shortcut first-keystroke="shift alt RIGHT" />
+  </action>
+  <action id="SwitchUp">
+    <keyboard-shortcut first-keystroke="shift alt UP" />
+  </action>
   <action id="Synchronize">
     <keyboard-shortcut first-keystroke="meta alt Y" />
     <keyboard-shortcut first-keystroke="shift alt Y" />
