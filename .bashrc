@@ -19,4 +19,4 @@ alias cityblock='cd ~/Workspace/CityBlock'
 alias evasion='cd ~/Workspace/Evasion'
 alias sassy='sass --watch stylesheets/sass:stylesheets/compiled'
 alias access='ssh aml500@access.cims.nyu.edu'
-
+alias mot='cd ~/Workspace/My-One-Thing'
