@@ -1,6 +1,10 @@
-Starcraft: Brood War maps that I have created.
+Various things I've decided to keep around.
 
 Contents:
+        *.bashrc
+              My bashrc file B)
+        *rubymine windows keybindings
+              adapted from pivotal's OSX-specific bindings
 	*(8)Blood Gulch
 		A map based on the Halo multiplayer map, Blood Gulch. Currently it supports 4v4 team play with the objective of either reaching a certain kill count or capturing the flag for points.
 		Features:
