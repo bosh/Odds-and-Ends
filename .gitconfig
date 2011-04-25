@@ -1,0 +1,11 @@
+[alias] 
+    st = status
+    ci = commit
+    co = checkout
+    w = whatchanged
+
+[color] 
+    diff = auto
+    interactive = auto
+    status = auto
+    branch = auto

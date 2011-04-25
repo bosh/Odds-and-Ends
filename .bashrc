@@ -1,5 +1,6 @@
 alias gs='git status'
 alias gd='git diff'
+alias gw='git w'
 alias gc='git commit'
 alias dir='ls -l'
 alias e='explorer .'
