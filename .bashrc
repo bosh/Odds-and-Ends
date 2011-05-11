@@ -61,4 +61,5 @@ alias mot='cd ~/Workspace/My-One-Thing'
 alias cuke='cucumber --format=pretty '
 alias gogogo='autotest'
 alias wp="ruby ~/Workspace/Utils/wp.rb"
+alias utils="cd ~/Workspace/Utils"
 PS1="\n\D{}${PS1}"
