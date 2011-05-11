@@ -28,13 +28,13 @@ function test_identities {
 if [ -n "$SSH_AGENT_PID" ]; then
     ps -ef | grep "$SSH_AGENT_PID" | grep ssh-agent > /dev/null
     if [ $? -eq 0 ]; then
-	test_identities
+    test_identities
     fi
 # if $SSH_AGENT_PID is not properly set, we might be able to load one from
 # $SSH_ENV
 else
     if [ -f "$SSH_ENV" ]; then
-	. "$SSH_ENV" > /dev/null
+    . "$SSH_ENV" > /dev/null
     fi
     ps -ef | grep "$SSH_AGENT_PID" | grep ssh-agent > /dev/null
     if [ $? -eq 0 ]; then
@@ -50,26 +50,15 @@ alias gw='git w'
 alias gc='git commit'
 alias dir='ls -l'
 alias e='explorer .'
-alias ss='ruby script/server'
 alias rc='rails console'
 alias rs='rails server'
-alias server='ruby script/server'
-alias dbconsole='ruby script/dbconsole'
-alias console='ruby script/console'
-alias heuristics='cd ~/Workspace/Heuristics'
-alias sswl='cd ~/Workspace/SSWL/trunk/SSWL'
-alias ling='cd ~/Workspace/Linguistic-Explorer'
 alias workspace='cd ~/Workspace'
-alias heuristics='cd ~/Workspace/Heuristics'
-alias diaspora='cd ~/Workspace/diaspora'
-alias games='cd ~/Workspace/Computer-Games'
+alias ling='cd ~/Workspace/Linguistic-Explorer'
 alias odds='cd ~/Workspace/Odds-and-Ends'
-alias cityblock='cd ~/Workspace/CityBlock'
-alias evasion='cd ~/Workspace/Evasion'
 alias sassy='sass --watch stylesheets/sass:stylesheets/compiled'
 alias access='ssh aml500@access.cims.nyu.edu'
 alias mot='cd ~/Workspace/My-One-Thing'
 alias cuke='cucumber --format=pretty '
 alias gogogo='autotest'
-alias wp='ruby wp.rb'
+alias wp="ruby ~/Workspace/Utils/wp.rb"
 PS1="\n\D{}${PS1}"
