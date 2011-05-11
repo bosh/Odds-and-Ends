@@ -70,4 +70,6 @@ alias sassy='sass --watch stylesheets/sass:stylesheets/compiled'
 alias access='ssh aml500@access.cims.nyu.edu'
 alias mot='cd ~/Workspace/My-One-Thing'
 alias cuke='cucumber --format=pretty '
+alias gogogo='autotest'
+alias wp='ruby wp.rb'
 PS1="\n\D{}${PS1}"
