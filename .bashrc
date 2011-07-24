@@ -62,4 +62,7 @@ alias cuke='cucumber --format=pretty '
 alias gogogo='autotest'
 alias wp="ruby ~/Workspace/Utils/wp.rb"
 alias utils="cd ~/Workspace/Utils"
+
+bind 'C-k:clear-screen'
+
 PS1="\n\D{}${PS1}"
