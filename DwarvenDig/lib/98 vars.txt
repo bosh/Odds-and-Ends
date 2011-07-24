@@ -1,0 +1,169 @@
+dirt equ 00000000b
+special equ 11110001b
+water equ 11110010b
+loam equ 00110011b
+rhyolite equ 01010100b
+lignite equ 01100101b
+microcline equ 01110110b
+cinnabar equ 01010111b
+gabbro equ 10011000b
+copper equ 10001001b
+silver equ 10101010b
+quartz equ 10011011b
+diamond equ 11001100b
+hematite equ 10101101b
+obsidian equ 1101110b
+gold equ 10101111b
+; The array of materials, in order
+materials db dirt, special, water, loam, rhyolite, lignite, microcline, cinnabar
+  db gabbro, copper, silver, quartz, diamond, hematite, obsidian, gold  ;16
+;Color Constants
+black equ 0
+blue equ 1
+green equ 2
+cyan equ 3
+red equ 4
+magenta equ 5
+brown equ 6
+lgrey equ 7
+dgrey equ 8
+bblue equ 9
+bgreen equ 0AH
+bcyan equ 0BH
+bred equ 0CH
+bmag equ 0DH
+yellow equ 0EH
+white equ 0FH
+dosColor equ 00000111b  ;Black BG, LGrey FG
+;Dirt, Spec, Water, Loam, Rhyo, Lign, Micr, Cina, Gabb, Copp, Silv, Quar, Diam, Hema, Obsi, Gold
+gameTile db 46, 35, 247, 176, 177, 156, 174, 233  ;ASCII codes for tiles
+              db  254, 157, 36, 37, 4, 126, 178, 42
+tileColo db lgrey, black, blue, green, lgrey, dgrey, cyan, bred ;Color codes following tile order
+            db dgrey, brown, white, bmag, magenta, red, black, yellow
+hpColors db 3 dup(black), 4 dup(lgrey)
+  db 4 dup(dgrey), 1 dup(white), 4 dup(black)
+; ^:Color to display on the background for each hitpoint level 0-15
+;
+-----------------------------------------
+; Game-related variables
+whoTurn db 0 ;Variable for player number, for which player's turn it is. Should NOR every turn
+gameOver db 0 ;Boolean checked in checkVictory, used for playGame looping
+counter dw 0 ;Should be incremented every turn end
+dwarf1 db 0, 0 ;Storage of dwarf X and Y
+dwarf2 db 0, 0 ;Storage of dwarf X and Y
+invent1 db 00000000b  ;Dwarf 1's Inventory booleans recording:
+invent2 db 00000000b  ;Dwarf 2's Inventory Pick|Pick|Gold|Silver|Copper|Iron|Diamond|Quartz
+;
+brdMinX equ 10
+brdMaxX equ 61
+brdMinY equ 8
+brdMaxY equ 21
+;
+outFrame dw 1
+;
+; Large-Scale Game Variables
+popsZstr dw 81, 82, 83, 84, 90, 94, 100, 106, 107
+  dw 108, 113, 115, 120, 121, 122, 125, 129, 161, 165
+  dw 169, 172, 175, 179, 181, 185, 189, 192, 196
+  dw 199, 205, 206, 209, 241, 243, 246, 249, 251
+  dw 253, 255, 258, 262, 265, 269, 272, 276, 279
+  dw 280, 281, 285, 287, 289, 321, 323, 324, 326
+  dw 329, 332, 335, 338, 339, 340, 341, 342, 345
+  dw 346, 347, 348, 352, 356, 359, 365, 368, 369
+  dw 401, 403, 406, 410, 412, 414, 418, 422, 425
+  dw 429, 433, 435, 439, 445, 449, 481, 485, 491
+  dw 493, 499, 501, 505, 509, 514, 520, 521, 522
+  dw 525, 529, 561, 562, 563, 564, 802, 803, 804
+  dw 881, 885, 963, 1043, 1121, 1125, 1202
+  dw 1203, 1204, 1442, 1443, 1444, 1521, 1525
+  dw 1601, 1681, 1683, 1684, 1761, 1764, 1765
+  dw 1842, 1843, 1845, 0 ;String of indexes for locations, boardwise, for static blocks
+;
+board db 2000 dup (' ') ;The game board as a single array
+    ;Implementation is such that every spot on the screen has a part in this array
+    ;Values 0-79 are each column in the 0 height row, then wrapping 80-159 to 1
+    ;height, etc. There is no spot for column returns, those will be custom-handled
+    ;in the PrintBoard procedure
+;
+-------------------------------------------
+;
+; Layer workings variables
+; Mat is an array tracking each layer's material
+; Numbered ones are the materials to generate from
+layerMat db dirt, 6 dup(?)  ;Layer0 is dirt, which is nonrandom
+layer1 db 3 dup(loam), rhyolite ;4
+layer2 db 2 dup(loam), 3 dup(rhyolite), lignite ;6
+layer3 db 2 dup(rhyolite), 2 dup(lignite), microcline  ;5
+layer4 db 2 dup(microcline), gabbro  ;3
+layer5 db 2 dup(gabbro), obsidian, microcline  ;4
+layer6 db 2 dup(obsidian), gabbro  ;3
+; Counts track how many options there are for the materials in a single layer
+countL1 equ 4
+countL2 equ 6
+countL3 equ 5
+countL4 equ 3
+countL5 equ 4
+countL6 equ 3
+;
+; These are the board patterns for tiles to place
+; materials into. Each row must sum to 51. Tinkering
+; with the contents of the array should not break the
+; game as long as the exact total of 51 is kept intact.
+;
+;Layer#: Dirt 1  2  3  4  5  6  5  4  3  2   1  Dirt
+row1  db  0,  0, 6, 7, 5, 4, 7, 4, 5, 7, 6,  0, 0
+row2  db  0,  1, 5, 8, 6, 4, 3, 4, 6, 8, 5,  1, 0
+row3  db  0,  3, 6, 9, 5, 5, 0, 0, 5, 9, 6,  3, 0
+row4  db  1,  5, 7, 8, 4, 1, 0, 0, 4, 8, 7,  5, 1
+row5  db  3,  7, 9, 5, 3, 0, 0, 0, 0, 5, 9,  7, 3
+row6  db  5, 10, 7, 7, 0, 0, 0, 0, 0, 0, 7, 10, 5
+row7  db  8, 13, 9, 0, 0, 0, 0, 0, 0, 0, 0, 13, 8
+row8  db 12, 12, 3, 0, 0, 0, 0, 0, 0, 0, 0, 12, 12
+row9  db 17, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0,  0, 17
+row10 db 20, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0,  0, 20
+row11 db 23,  5, 0, 0, 0, 0, 0, 0, 0, 0, 0,  0, 23
+row12 db 24,  3, 0, 0, 0, 0, 0, 0, 0, 0, 0,  0, 24
+row13 db 51,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  0, 0
+;
+d1XStrt equ 29
+d1YStrt equ 19
+d2XStrt equ 43
+d2YStrt equ 19
+---------------------------------------
+;
+; Vein workings variables
+vein1 db brdMinX+1, brdMinX+15 ;The X start value range allowable for the vein
+vein2 db brdMinX+10, brdMinX+30
+vein3 db brdMaxX-30, brdMaxX-10
+vein4 db brdMaxX-15, brdMaxX-1
+veinMat db 0 ;The material populating the current vein
+veinLow db 2 dup(lignite), 2 dup(cinnabar), 2 dup(copper), silver ;7 The options for a low-value vein
+veinHigh db cinnabar, copper, 2 dup (silver), 2 dup(hematite), obsidian ;7 The options for a high-value vein
+veinDir db 0  ;Direction storage for vein travel. 0 is down left, 1 is down, 2 is down right
+veinMag db 0  ;Magnitude left in the current placement (should never be above 3)
+veinXY db 0, 0  ;The current last location for the vein
+veinOOB db 0  ;Tracks whether the vein is in an Out of Bounds location
+countVL equ 7
+countVH equ 7
+;
+--------------------------------------
+;
+; Cluster workings variables
+clustMat db ? ;The value currently being used to populate clusters with
+clusterL db loam, lignite, microcline, quartz ;4 The options for a low-value cluster
+clusterM db dirt, water, lignite, copper, 2 dup(quartz) ;5 The options for a medium-value cluster
+clusterH db water, 2 dup(microcline), gabbro, silver, diamond, 2 dup(obsidian) ;8 The options for a high-value cluster
+clusSize db 0  ;Size storage for clusters. 0 is a 1x1, 1 is 2x2, 2 is a 5 tile cross, 3 is 3x3
+clusCent db 0, 0  ;Board[] ary location for the upper left part of the vein
+clusLwX1 db brdMinX+1, brdMaxX-4  ;Range for X start values for low clusters(one)
+clusLwX2 db brdMinX+5, brdMaxX-8  ;Range for X start values (low number 2)
+clusMedX db brdMinX+10, brdMaxX-13  ;Range for X start values for medium clusters
+clusHigX  db brdMinX+13, brdMaxX-16 ;Range for X start values for high clusters
+clusYrng db 10, 16 ;Range for Y start values for all clusters
+countCL equ 4
+countCM equ 5
+countCH equ 8
+;
+-------------------------------------------
+inLoS db 0
+brwblack equ 60h
