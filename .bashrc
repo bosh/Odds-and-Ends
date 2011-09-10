@@ -1,5 +1,55 @@
+# Vars
 SSH_ENV="$HOME/.ssh/environment"
+PS1="\D{}${PS1}"
 
+# Autocopy
+alias refresh-bash-rc='odds && cp .bashrc ~/.bashrc && cd -'
+
+# Bindings
+bind 'C-k:clear-screen'
+
+# Pastebuffer hax
+alias paste='cat /dev/clipboard && echo '
+
+# Filesystem operations
+alias e='explorer .'
+alias dir='ls'
+alias ls='ls -lAF --color'
+alias diff='diff -u'
+
+# Git
+alias gs='git status'
+alias gd='git diff'
+alias gw='git w'
+alias gc='git commit'
+
+# Ruby
+alias bx='bundle exec'
+alias be='bx'
+alias cuke='cucumber --format=pretty '
+alias gogogo='autotest'
+alias sassy='sass --watch stylesheets/sass:stylesheets/compiled'
+# Rails 2
+alias ss='script/server'
+alias sc='script/console'
+alias sdb='script/dbconsole'
+# Rails 3
+alias rdb='rails dbconsole'
+alias rc='rails console'
+alias rs='rails server'
+
+# Projects
+alias workspace='cd ~/Workspace'
+alias ling='cd ~/Workspace/Linguistic-Explorer'
+alias odds='cd ~/Workspace/Odds-and-Ends'
+alias access='ssh aml500@access.cims.nyu.edu'
+alias mot='cd ~/Workspace/My-One-Thing'
+
+# Utils
+alias utils="cd ~/Workspace/Utils"
+alias wp="ruby ~/Workspace/Utils/wp.rb"
+
+# SSH Helpers
 # start the ssh-agent
 function start_agent {
     echo "Initializing new SSH agent..."
@@ -43,35 +93,3 @@ else
         start_agent
     fi
 fi
-
-alias gs='git status'
-alias gd='git diff'
-alias gw='git w'
-alias gc='git commit'
-
-alias dir='ls -l'
-alias e='explorer .'
-
-alias ss='script/server'
-alias sc='script/console'
-alias sdb='script/dbconsole'
-alias bx='bundle exec'
-alias be='bundle exec'
-alias rdb='rails dbconsole'
-alias rc='rails console'
-alias rs='rails server'
-
-alias workspace='cd ~/Workspace'
-alias ling='cd ~/Workspace/Linguistic-Explorer'
-alias odds='cd ~/Workspace/Odds-and-Ends'
-alias sassy='sass --watch stylesheets/sass:stylesheets/compiled'
-alias access='ssh aml500@access.cims.nyu.edu'
-alias mot='cd ~/Workspace/My-One-Thing'
-alias cuke='cucumber --format=pretty '
-alias gogogo='autotest'
-alias wp="ruby ~/Workspace/Utils/wp.rb"
-alias utils="cd ~/Workspace/Utils"
-
-bind 'C-k:clear-screen'
-
-PS1="\n\D{}${PS1}"
