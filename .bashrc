@@ -23,6 +23,7 @@ alias gs='git status'
 alias gd='git diff'
 alias gw='git w'
 alias gc='git commit'
+alias gdc='git diff --cached'
 
 # Ruby
 alias bx='bundle exec'
