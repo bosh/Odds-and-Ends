@@ -16,6 +16,7 @@ alias e='explorer .'
 alias dir='ls'
 alias ls='ls -lAF --color'
 alias diff='diff -u'
+alias sublime='"C:/Program Files/Sublime Text 2/sublime_text.exe"'
 
 # Git
 alias gs='git status'
