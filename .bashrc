@@ -3,7 +3,7 @@ SSH_ENV="$HOME/.ssh/environment"
 PS1="\D{}${PS1}"
 
 # Autocopy
-alias refresh-bash-rc='odds && cp .bashrc ~/.bashrc && cd -'
+alias refresh-bash-rc='odds && cp .bashrc ~/.bashrc && cd - && source ~/.bashrc'
 
 # Bindings
 bind 'C-k:clear-screen'
