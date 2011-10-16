@@ -44,6 +44,7 @@ alias rs='rails server'
 alias workspace='cd ~/Workspace'
 alias ling='cd ~/Workspace/Linguistic-Explorer'
 alias odds='cd ~/Workspace/Odds-and-Ends'
+alias k='cd ~/Workspace/key-lib'
 alias access='ssh aml500@access.cims.nyu.edu'
 alias mot='cd ~/Workspace/My-One-Thing'
 
