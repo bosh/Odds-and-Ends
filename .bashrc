@@ -1,15 +1,15 @@
-# Vars
+# Vars and shell changes
 SSH_ENV="$HOME/.ssh/environment"
 PS1="\D{}${PS1}"
 
-# Autocopy
+# Autocopy this file from repo
 alias refresh-bash-rc='odds && cp .bashrc ~/.bashrc && cd - && source ~/.bashrc'
 
 # Bindings
 bind 'C-k:clear-screen'
 
-# Pastebuffer hax
-alias paste='cat /dev/clipboard && echo '
+# Changes to alias
+alias alias?='alias -p'
 
 # Filesystem operations
 alias e='explorer .'
@@ -42,14 +42,16 @@ alias rs='rails server'
 
 # Projects
 alias workspace='cd ~/Workspace'
-alias ling='cd ~/Workspace/Linguistic-Explorer'
-alias odds='cd ~/Workspace/Odds-and-Ends'
 alias k='cd ~/Workspace/key-lib'
-alias access='ssh aml500@access.cims.nyu.edu'
+alias o='cd ~/Workspace/Odds-and-Ends'
+alias utils="cd ~/Workspace/Utils"
+alias ling='cd ~/Workspace/Linguistic-Explorer'
 alias mot='cd ~/Workspace/My-One-Thing'
 
 # Utils
-alias utils="cd ~/Workspace/Utils"
+alias spy='grep -B 3 -A 3 -n -C 1 -r -h --null'
+alias paste='cat /dev/clipboard && echo '
+alias access='ssh aml500@access.cims.nyu.edu'
 alias wp="ruby ~/Workspace/Utils/wp.rb"
 
 # SSH Helpers
