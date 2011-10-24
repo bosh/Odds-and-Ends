@@ -3,7 +3,7 @@ SSH_ENV="$HOME/.ssh/environment"
 PS1="\D{}${PS1}"
 
 # Autocopy this file from repo
-alias refresh-bash-rc='odds && cp .bashrc ~/.bashrc && cd - && source ~/.bashrc'
+alias refresh-bash-rc='o && cp .bashrc ~/.bashrc && cd - && source ~/.bashrc'
 
 # Bindings
 bind 'C-k:clear-screen'
@@ -13,7 +13,7 @@ alias alias?='alias -p'
 
 # Filesystem operations
 alias e='explorer .'
-alias dir='ls'
+alias dir='ls -f'
 alias ls='ls -lAF --color'
 alias diff='diff -u'
 alias sublime='"C:/Program Files/Sublime Text 2/sublime_text.exe"'
