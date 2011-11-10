@@ -13,7 +13,7 @@ alias alias?='alias -p'
 
 # Filesystem operations
 alias e='explorer .'
-alias dir='ls -f'
+alias dir='ls -f --color'
 alias ls='ls -lAF --color'
 alias diff='diff -u'
 alias sublime='"C:/Program Files/Sublime Text 2/sublime_text.exe"'
