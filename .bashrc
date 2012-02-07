@@ -17,6 +17,7 @@ alias dir='ls -f --color'
 alias ls='ls -lAF --color'
 alias diff='diff -u'
 alias sublime='"C:/Program Files/Sublime Text 2/sublime_text.exe"'
+alias subl="sublime -a"
 
 # Git
 alias gs='git status'
@@ -45,8 +46,8 @@ alias workspace='cd ~/Workspace'
 alias k='cd ~/Workspace/key-lib'
 alias o='cd ~/Workspace/Odds-and-Ends'
 alias utils="cd ~/Workspace/Utils"
-alias ling='cd ~/Workspace/Linguistic-Explorer'
-alias mot='cd ~/Workspace/My-One-Thing'
+alias archive='cd ~/Workspace/archive/Linguistic-Explorer'
+alias ling='cd ~/Workspace/archive/Linguistic-Explorer'
 
 # Utils
 alias spy='grep -B 3 -A 3 -n -C 1 -r -h --null'
