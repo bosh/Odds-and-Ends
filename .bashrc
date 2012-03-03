@@ -18,6 +18,7 @@ alias ls='ls -lAF --color'
 alias diff='diff -u'
 alias sublime='"C:/Program Files/Sublime Text 2/sublime_text.exe"'
 alias subl="sublime -a"
+alias back="cd -"
 
 # Git
 alias gs='git status'
@@ -29,6 +30,7 @@ alias gdc='git diff --cached'
 # Ruby
 alias bx='bundle exec'
 alias be='bx'
+alias rspec='rspec -c'
 alias cuke='cucumber --format=pretty '
 alias gogogo='autotest'
 alias sassy='sass --watch stylesheets/sass:stylesheets/compiled'
