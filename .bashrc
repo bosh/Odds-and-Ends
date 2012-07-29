@@ -9,10 +9,11 @@ alias refresh-bash-rc='o && cp .bashrc ~/.bashrc && cd - && source ~/.bashrc'
 bind 'C-k:clear-screen'
 
 # Changes to alias
-alias alias?='alias -p'
+alias alias?='alias '
 
 # Filesystem operations
 alias e='explorer .'
+alias d='dir'
 alias dir='ls -f --color'
 alias ls='ls -lAF --color'
 alias diff='diff -u'
@@ -25,7 +26,10 @@ alias gs='git status'
 alias gd='git diff'
 alias gw='git w'
 alias gc='git commit'
+alias gco='git checkout'
+alias gpr='git pull --rebase'
 alias gdc='git diff --cached'
+alias gdh='gif diff HEAD'
 
 # Ruby
 alias bx='bundle exec'
@@ -50,6 +54,7 @@ alias o='cd ~/Workspace/Odds-and-Ends'
 alias utils="cd ~/Workspace/Utils"
 alias archive='cd ~/Workspace/archive/Linguistic-Explorer'
 alias ling='cd ~/Workspace/archive/Linguistic-Explorer'
+alias minecraft='cd ~/AppData/Roaming/.minecraft/bin'
 
 # Utils
 alias spy='grep -B 3 -A 3 -n -C 1 -r -h --null'
