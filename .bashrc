@@ -56,6 +56,9 @@ alias archive='cd ~/Workspace/archive/Linguistic-Explorer'
 alias ling='cd ~/Workspace/archive/Linguistic-Explorer'
 alias minecraft='cd ~/AppData/Roaming/.minecraft/bin'
 
+#Minecraft Branches
+alias mc="minecraft && git checkout"
+
 # Utils
 alias spy='grep -B 3 -A 3 -n -C 1 -r -h --null'
 alias paste='cat /dev/clipboard && echo '
