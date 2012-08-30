@@ -20,6 +20,7 @@ alias diff='diff -u'
 alias sublime='"C:/Program Files/Sublime Text 2/sublime_text.exe"'
 alias subl="sublime -a"
 alias back="cd -"
+alias up="cd .."
 
 # Git
 alias gs='git status'
