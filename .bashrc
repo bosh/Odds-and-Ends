@@ -69,6 +69,7 @@ alias wp="ruby ~/Workspace/Utils/wp.rb"
 # Projects
 alias archive='cd ~/Workspace/archive/Linguistic-Explorer'
 alias k='cd ~/Workspace/key-lib'
+alias v='cd ~/Workspace/visualkeyboard'
 alias ling='cd ~/Workspace/archive/Linguistic-Explorer'
 alias o='cd ~/Workspace/Odds-and-Ends'
 alias utils="cd ~/Workspace/Utils"
