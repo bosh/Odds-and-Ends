@@ -21,7 +21,7 @@ alias e='explorer .'
 alias back="cd -"
 alias up="cd .."
 
-alias ls='ls -lAF --color'
+alias ls='ls -lAtF --color'
 alias dir='ls -f --color'
 alias d='dir'
 
