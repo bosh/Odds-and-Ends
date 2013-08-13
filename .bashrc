@@ -53,13 +53,8 @@ alias rc='rails console'
 alias rdb='rails dbconsole'
 #complete -o default -o nospace -F _rails r
 
-
-alias minecraft='cd ~/AppData/Roaming/.minecraft/bin'
-alias mc="minecraft && git checkout"
-
 alias sublime='"C:/Program Files/Sublime Text 2/sublime_text.exe"'
 alias subl="sublime -a"
-
 
 # Utils
 alias paste='cat /dev/clipboard && echo '
@@ -72,8 +67,9 @@ alias k='cd ~/Workspace/key-lib'
 alias v='cd ~/Workspace/visualkeyboard'
 alias ling='cd ~/Workspace/archive/Linguistic-Explorer'
 alias o='cd ~/Workspace/Odds-and-Ends'
-alias utils="cd ~/Workspace/Utils"
+alias utils='cd ~/Workspace/Utils'
 alias workspace='cd ~/Workspace'
+alias b='cd ~/Workspace/box'
 
 # SSH Helpers
 function start_agent {
