@@ -70,6 +70,7 @@ alias o='cd ~/Workspace/Odds-and-Ends'
 alias utils='cd ~/Workspace/Utils'
 alias workspace='cd ~/Workspace'
 alias b='cd ~/Workspace/box'
+alias m='cd ~/Workspace/matchbrick'
 
 # SSH Helpers
 function start_agent {
