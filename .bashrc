@@ -1,3 +1,6 @@
+# Start in ~ instead of / if shell opens into /
+if [ $PWD == '/' ]; then cd; fi
+
 # Kills ssh-agent on literal `exit` but not on upper right X button click... weird
 trap '
   test -n "$SSH_AGENT_PID"  && eval `ssh-agent -k` ;
@@ -69,8 +72,12 @@ alias ling='cd ~/Workspace/archive/Linguistic-Explorer'
 alias o='cd ~/Workspace/Odds-and-Ends'
 alias utils='cd ~/Workspace/Utils'
 alias workspace='cd ~/Workspace'
-alias b='cd ~/Workspace/box'
+alias w='workspace'
+alias b='cd ~/Workspace/chromeprices'
+alias bd='cd ~/Workspace/BrickData'
+alias box='cd ~/Workspace/box'
 alias m='cd ~/Workspace/matchbrick'
+alias p='cd ~/Workspace/easypost-gottashipemall'
 
 # SSH Helpers
 function start_agent {
